@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IAccountService, AccountManager>();
 builder.Services.AddSingleton<IAccountRepository, AccountRepository>();
+builder.Services.AddSingleton<IGeneralProductService, GeneralProductManager>();
+builder.Services.AddSingleton<IGeneralProductRepository, GeneralProductRepository>();
 
 var app = builder.Build();
 

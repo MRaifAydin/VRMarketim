@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VrMarketim.Dto\VrMarketim.Dto.csproj" />
     <ProjectReference Include="..\VrMarketim.Entities\VrMarketim.Entities.csproj" />
   </ItemGroup>
 

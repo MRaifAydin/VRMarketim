@@ -19,5 +19,7 @@ namespace VrMarketim.DataAccess
 
         public DbSet<Account> Accounts { get; set; }
 
+        public DbSet<GeneralProduct> GeneralProducts { get; set; }
+
     }
 }
