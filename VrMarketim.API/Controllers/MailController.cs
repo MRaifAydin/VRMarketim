@@ -16,10 +16,10 @@ namespace VrMarketim.API.Controllers
         }
 
         [HttpGet]
-        public string Get()
+        public async Task<string> Get()
         {
-            var message = new Message(new string[] { "mert5708@gmail.com" }, "Test Mail", "Content");
-            _mailSender.SendMail(message);
+            var message = new Message(new string[] { "mert5708@gmail.com" }, "Test Mail Async", "Content");
+            await _mailSender.SendMailAsync(message);
             return "Mail Sent.";
         }
 

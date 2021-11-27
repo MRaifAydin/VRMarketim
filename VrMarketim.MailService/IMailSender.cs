@@ -9,5 +9,6 @@ namespace VrMarketim.MailService
     public interface IMailSender
     {
         void SendMail(Message message);
+        Task SendMailAsync(Message message);
     }
 }

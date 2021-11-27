@@ -24,6 +24,12 @@ namespace VrMarketim.MailService
             Send(mailMessage);
         }
 
+        public async Task SendMailAsync(Message message)
+        {
+            var mailMessage = CreateMailMessage(message);
+            await SendAsync(mailMessage);
+        }
+
         private MimeMessage CreateMailMessage(Message message)
         {
             var mailMessage = new MimeMessage();
@@ -54,6 +60,30 @@ namespace VrMarketim.MailService
                 finally
                 {
                     client.Disconnect(true);
+                    client.Dispose();
+                }
+            }
+        }
+
+        private async Task SendAsync(MimeMessage mailMessage)
+        {
+            using (var client = new SmtpClient())
+            {
+                try
+                {
+                    await client.ConnectAsync(_configuration.SmtpServer, _configuration.Port, true);
+                    client.AuthenticationMechanisms.Remove("XOAUTH2");
+                    await client.AuthenticateAsync(_configuration.Username, _configuration.Password);
+
+                    await client.SendAsync(mailMessage);
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    await client.DisconnectAsync(true);
                     client.Dispose();
                 }
             }
