@@ -13,5 +13,11 @@ namespace VrMarketim.Dto.Dto
         public string Password { get; set; }
 
         public string SPassword { get; set; }
+
+        public string Name { get; set; }
+
+        public string Surname { get; set; }
+
+        public string Address { get; set; }
     }
 }

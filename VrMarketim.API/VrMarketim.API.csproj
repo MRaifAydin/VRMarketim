@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\VrMarketim.Business\VrMarketim.Business.csproj" />
     <ProjectReference Include="..\VrMarketim.Entities\VrMarketim.Entities.csproj" />
+    <ProjectReference Include="..\VrMarketim.MailService\VrMarketim.MailService.csproj" />
   </ItemGroup>
 
 </Project>

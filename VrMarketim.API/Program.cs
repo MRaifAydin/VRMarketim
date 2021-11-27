@@ -2,6 +2,7 @@ using VrMarketim.Business.Abstract;
 using VrMarketim.Business.Concrete;
 using VrMarketim.DataAccess.Abstract;
 using VrMarketim.DataAccess.Concrete;
+using VrMarketim.MailService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ builder.Services.AddSingleton<IAccountService, AccountManager>();
 builder.Services.AddSingleton<IAccountRepository, AccountRepository>();
 builder.Services.AddSingleton<IGeneralProductService, GeneralProductManager>();
 builder.Services.AddSingleton<IGeneralProductRepository, GeneralProductRepository>();
+var mailConfig = builder.Configuration.GetSection("MailConfiguration").Get<MailConfiguration>();
+builder.Services.AddSingleton(mailConfig);
+builder.Services.AddScoped<IMailSender, MailSender>();
 
 var app = builder.Build();
 

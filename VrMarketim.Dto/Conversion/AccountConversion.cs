@@ -16,6 +16,9 @@ namespace VrMarketim.Dto.Conversion
             {
                 Mail = account.Mail,
                 Password = account.Password,
+                Name = account.Name,
+                Surname = account.Surname,
+                Address = account.Address,
             };
         }
 
@@ -25,6 +28,9 @@ namespace VrMarketim.Dto.Conversion
             {
                 Mail = account.Mail,
                 Password = account.Password,
+                Name = account.Name,
+                Surname = account.Surname,
+                Address = account.Address,
             };
         }
     }

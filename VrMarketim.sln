@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VrMarketim.Dto", "VrMarketi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VrMarketim.Business", "VrMarketim.Business\VrMarketim.Business.csproj", "{2C8F9B3B-D923-4A06-A372-F3FB87206B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VrMarketim.API", "VrMarketim.API\VrMarketim.API.csproj", "{7E5D152F-21D9-4A30-BED4-F5A95D02844A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VrMarketim.API", "VrMarketim.API\VrMarketim.API.csproj", "{7E5D152F-21D9-4A30-BED4-F5A95D02844A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VrMarketim.MailService", "VrMarketim.MailService\VrMarketim.MailService.csproj", "{0D2B08DB-4615-4468-8121-8B9C9C0E306A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7E5D152F-21D9-4A30-BED4-F5A95D02844A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E5D152F-21D9-4A30-BED4-F5A95D02844A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E5D152F-21D9-4A30-BED4-F5A95D02844A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D2B08DB-4615-4468-8121-8B9C9C0E306A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D2B08DB-4615-4468-8121-8B9C9C0E306A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D2B08DB-4615-4468-8121-8B9C9C0E306A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D2B08DB-4615-4468-8121-8B9C9C0E306A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
