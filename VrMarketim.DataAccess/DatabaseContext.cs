@@ -21,5 +21,7 @@ namespace VrMarketim.DataAccess
 
         public DbSet<GeneralProduct> GeneralProducts { get; set; }
 
+        public DbSet<Basket> Baskets { get; set; }
+
     }
 }

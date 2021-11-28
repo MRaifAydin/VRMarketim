@@ -12,6 +12,8 @@ builder.Services.AddSingleton<IAccountService, AccountManager>();
 builder.Services.AddSingleton<IAccountRepository, AccountRepository>();
 builder.Services.AddSingleton<IGeneralProductService, GeneralProductManager>();
 builder.Services.AddSingleton<IGeneralProductRepository, GeneralProductRepository>();
+builder.Services.AddSingleton<IBasketService, BasketManager>();
+builder.Services.AddSingleton<IBasketRepository, BasketRepository>();
 var mailConfig = builder.Configuration.GetSection("MailConfiguration").Get<MailConfiguration>();
 builder.Services.AddSingleton(mailConfig);
 builder.Services.AddScoped<IMailSender, MailSender>();
