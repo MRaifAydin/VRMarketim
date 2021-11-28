@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VrMarketim.Dto.Dto;
+using VrMarketim.Entities;
 
 namespace VrMarketim.Business.Abstract
 {
     public interface IAccountService
     {
-        bool CheckUser(AccountDto account);
+        bool CheckUser(Account account);
 
-        bool CreateUser(AccountDto account);
+        bool CreateUser(Account account);
+
+        Account UpdateUser(Account account);
     }
 }

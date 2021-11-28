@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using VrMarketim.Business.Abstract;
 using VrMarketim.Business.Concrete;
-using VrMarketim.Dto.Dto;
 using VrMarketim.Entities;
 
 namespace VrMarketim.API.Controllers
@@ -19,16 +18,22 @@ namespace VrMarketim.API.Controllers
         }
 
         [HttpPost]
-        public bool Post([FromBody] AccountDto account)
+        public bool Post([FromBody] Account account)
         {
             return _accountService.CreateUser(account);
         }
 
         [Route("checkUser")]
         [HttpPost]
-        public bool CheckUser([FromBody] AccountDto account)
+        public bool CheckUser([FromBody] Account account)
         {
             return _accountService.CheckUser(account);
+        }
+
+        [HttpPut]
+        public Account UpdateUser([FromBody] Account account)
+        {
+            return _accountService.UpdateUser(account);
         }
     }
 }

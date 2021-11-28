@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VrMarketim.Business.Abstract;
 using VrMarketim.DataAccess.Abstract;
-using VrMarketim.Dto.Conversion;
-using VrMarketim.Dto.Dto;
+using VrMarketim.Entities;
 
 namespace VrMarketim.Business.Concrete
 {
@@ -19,11 +18,11 @@ namespace VrMarketim.Business.Concrete
             _accountRepository = accountRepository;
         }
 
-        public bool CreateUser(AccountDto account)
+        public bool CreateUser(Account account)
         {
-            if ((_accountRepository.GetUser(AccountConversion.ToEntity(account)).Mail != account.Mail) && (account.Password == account.SPassword))
+            if ((_accountRepository.GetUser(account).Mail != account.Mail))
             {
-                _accountRepository.CreateUser(AccountConversion.ToEntity(account));
+                _accountRepository.CreateUser(account);
                 return true;
             }
             else
@@ -32,13 +31,18 @@ namespace VrMarketim.Business.Concrete
             }
         }
 
-        public bool CheckUser(AccountDto account)
+        public bool CheckUser(Account account)
         {
-            if (_accountRepository.GetUser(AccountConversion.ToEntity(account)).Password == account.Password)
+            if (_accountRepository.GetUser(account).Password == account.Password)
             {
                 return true;
             }
             else { return false; }
+        }
+
+        public Account UpdateUser(Account account)
+        {
+            return _accountRepository.UpdateUser(account);
         }
     }
 }

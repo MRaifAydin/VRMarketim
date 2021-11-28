@@ -4,21 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VrMarketim.DataAccess.Abstract;
-using VrMarketim.Dto.Conversion;
-using VrMarketim.Dto.Dto;
 using VrMarketim.Entities;
 
 namespace VrMarketim.DataAccess.Concrete
 {
     public class GeneralProductRepository : IGeneralProductRepository
     {
-        public GeneralProductDto CreateProduct(GeneralProduct generalProduct)
+        public GeneralProduct CreateProduct(GeneralProduct generalProduct)
         {
             using (var databaseContext = new DatabaseContext())
             {
                 databaseContext.GeneralProducts.Add(generalProduct);
                 databaseContext.SaveChanges();
-                return GeneralProductConversion.ToApi(generalProduct);
+                return generalProduct;
             }
         }
 
@@ -27,7 +25,7 @@ namespace VrMarketim.DataAccess.Concrete
             using (var databaseContext = new DatabaseContext())
             {
                 var deletedProduct = GetProductById(id);
-                databaseContext.GeneralProducts.Remove(GeneralProductConversion.ToEntity(deletedProduct));
+                databaseContext.GeneralProducts.Remove(deletedProduct);
                 databaseContext.SaveChanges();
             }
         }
@@ -41,21 +39,21 @@ namespace VrMarketim.DataAccess.Concrete
             }
         }
 
-        public GeneralProductDto GetProductById(int id)
+        public GeneralProduct GetProductById(int id)
         {
             using (var databaseContext = new DatabaseContext())
             {
-                return GeneralProductConversion.ToApi(databaseContext.GeneralProducts.Find(id));
+                return databaseContext.GeneralProducts.Find(id);
             }
         }
 
-        public GeneralProductDto UpdateProduct(GeneralProduct generalProduct)
+        public GeneralProduct UpdateProduct(GeneralProduct generalProduct)
         {
             using (var databaseContext = new DatabaseContext())
             {
                 databaseContext.GeneralProducts.Update(generalProduct);
                 databaseContext.SaveChanges();
-                return GeneralProductConversion.ToApi(generalProduct);
+                return generalProduct;
             }
         }
     }

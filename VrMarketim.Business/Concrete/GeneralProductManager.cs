@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VrMarketim.Business.Abstract;
 using VrMarketim.DataAccess.Abstract;
-using VrMarketim.Dto.Conversion;
-using VrMarketim.Dto.Dto;
+
 using VrMarketim.Entities;
 
 namespace VrMarketim.Business.Concrete
@@ -20,9 +19,9 @@ namespace VrMarketim.Business.Concrete
             _generalProductRepository = generalProductRepository;
         }
 
-        public GeneralProductDto CreateProduct(GeneralProductDto generalProduct)
+        public GeneralProduct CreateProduct(GeneralProduct generalProduct)
         {
-            return _generalProductRepository.CreateProduct(GeneralProductConversion.ToEntity(generalProduct));
+            return _generalProductRepository.CreateProduct(generalProduct);
         }
 
         public void DeleteProduct(int id)
@@ -35,14 +34,14 @@ namespace VrMarketim.Business.Concrete
             return _generalProductRepository.GetAllProducts();
         }
 
-        public GeneralProductDto GetProductById(int id)
+        public GeneralProduct GetProductById(int id)
         {
             return _generalProductRepository.GetProductById(id);
         }
 
-        public GeneralProductDto UpdateProduct(GeneralProductDto generalProduct)
+        public GeneralProduct UpdateProduct(GeneralProduct generalProduct)
         {
-            return _generalProductRepository.UpdateProduct(GeneralProductConversion.ToEntity(generalProduct));
+            return _generalProductRepository.UpdateProduct(generalProduct);
         }
     }
 }

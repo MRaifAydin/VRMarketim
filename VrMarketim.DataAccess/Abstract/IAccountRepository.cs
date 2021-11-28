@@ -12,5 +12,8 @@ namespace VrMarketim.DataAccess.Abstract
         Account GetUser(Account account);
 
         Account CreateUser(Account account);
+
+        Account UpdateUser(Account account);
+
     }
 }

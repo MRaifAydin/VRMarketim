@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VrMarketim.Business.Abstract;
-using VrMarketim.Dto.Dto;
 using VrMarketim.Entities;
 
 namespace VrMarketim.API.Controllers
@@ -24,19 +23,19 @@ namespace VrMarketim.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public GeneralProductDto Get(int id)
+        public GeneralProduct Get(int id)
         {
             return _generalProductService.GetProductById(id);
         }
 
         [HttpPost]
-        public GeneralProductDto Post([FromBody]GeneralProductDto product)
+        public GeneralProduct Post([FromBody] GeneralProduct product)
         {
             return _generalProductService.CreateProduct(product);
         }
 
         [HttpPut]
-        public GeneralProductDto Put([FromBody]GeneralProductDto product)
+        public GeneralProduct Put([FromBody] GeneralProduct product)
         {
             return _generalProductService.UpdateProduct(product);
         }

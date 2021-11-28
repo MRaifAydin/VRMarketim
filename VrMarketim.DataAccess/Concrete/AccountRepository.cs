@@ -32,5 +32,15 @@ namespace VrMarketim.DataAccess.Concrete
                 return user;
             }
         }
+
+        public Account UpdateUser(Account account)
+        {
+            using (var databaseContext = new DatabaseContext())
+            {
+                databaseContext.Accounts.Update(account);
+                databaseContext.SaveChanges();
+                return account;
+            }
+        }
     }
 }
