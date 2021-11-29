@@ -29,7 +29,7 @@ namespace VrMarketim.DataAccess.Concrete
                 {
                     return new Account();
                 }
-                return user;
+                else { return user; }
             }
         }
 

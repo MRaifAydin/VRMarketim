@@ -15,7 +15,7 @@ namespace VrMarketim.Entities
 
         [ForeignKey("Basket")]
         public int BasketId { get; set; }
-        public virtual Basket Basket { get; set; }
+       /* public virtual Basket Basket { get; set; }*/
 
     }
 }
