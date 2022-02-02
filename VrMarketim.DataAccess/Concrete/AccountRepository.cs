@@ -20,16 +20,16 @@ namespace VrMarketim.DataAccess.Concrete
             }
         }
 
-        public Account GetUser(Account account)
+        public Account GetUser(User user)
         {
             using (var databaseContext = new DatabaseContext())
             {
-                var user = databaseContext.Accounts.FirstOrDefault(a => a.Mail == account.Mail);
-                if (user == null)
+                var _user = databaseContext.Accounts.FirstOrDefault(a => a.Mail == user.Mail);
+                if (_user == null)
                 {
                     return new Account();
                 }
-                else { return user; }
+                else { return _user; }
             }
         }
 

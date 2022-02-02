@@ -9,7 +9,7 @@ namespace VrMarketim.DataAccess.Abstract
 {
     public interface IAccountRepository
     {
-        Account GetUser(Account account);
+        Account GetUser(User user);
 
         Account CreateUser(Account account);
 

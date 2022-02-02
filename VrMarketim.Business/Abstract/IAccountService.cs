@@ -9,7 +9,7 @@ namespace VrMarketim.Business.Abstract
 {
     public interface IAccountService
     {
-        bool CheckUser(Account account);
+        bool CheckUser(User user);
 
         bool CreateUser(Account account);
 

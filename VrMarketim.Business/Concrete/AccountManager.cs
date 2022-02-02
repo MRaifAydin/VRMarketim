@@ -20,7 +20,11 @@ namespace VrMarketim.Business.Concrete
 
         public bool CreateUser(Account account)
         {
-            if ((_accountRepository.GetUser(account).Mail != account.Mail))
+            User user = new User();
+            user.Mail = account.Mail;
+            user.Password = account.Password;
+                
+            if ((_accountRepository.GetUser(user).Mail != account.Mail))
             {
                 _accountRepository.CreateUser(account);
                 return true;
@@ -31,9 +35,9 @@ namespace VrMarketim.Business.Concrete
             }
         }
 
-        public bool CheckUser(Account account)
+        public bool CheckUser(User user)
         {
-            if (_accountRepository.GetUser(account).Password == account.Password)
+            if (_accountRepository.GetUser(user).Password == user.Password)
             {
                 return true;
             }

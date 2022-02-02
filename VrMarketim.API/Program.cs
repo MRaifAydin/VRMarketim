@@ -1,8 +1,11 @@
+using Microsoft.AspNetCore.Mvc.Formatters;
 using VrMarketim.Business.Abstract;
 using VrMarketim.Business.Concrete;
 using VrMarketim.DataAccess.Abstract;
 using VrMarketim.DataAccess.Concrete;
 using VrMarketim.MailService;
+
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,19 @@ builder.Services.AddSingleton<IPurchaseService, PurchaseManager>();
 var mailConfig = builder.Configuration.GetSection("MailConfiguration").Get<MailConfiguration>();
 builder.Services.AddSingleton(mailConfig);
 builder.Services.AddScoped<IMailSender, MailSender>();
+builder.Services.AddMvc(options =>
+{
+    options.AllowEmptyInputInBodyModelBinding = true;
+    foreach (var formatter in options.InputFormatters)
+    {
+        if (formatter.GetType() == typeof(SystemTextJsonInputFormatter))
+            ((SystemTextJsonInputFormatter)formatter).SupportedMediaTypes.Add(
+            Microsoft.Net.Http.Headers.MediaTypeHeaderValue.Parse("text/plain"));
+    }
+}).AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+});
 
 var app = builder.Build();
 
@@ -30,6 +46,12 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials());
 
 app.UseAuthorization();
 

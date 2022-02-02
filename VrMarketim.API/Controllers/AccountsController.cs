@@ -25,9 +25,9 @@ namespace VrMarketim.API.Controllers
 
         [Route("checkUser")]
         [HttpPost]
-        public bool CheckUser([FromBody] Account account)
+        public bool CheckUser([FromBody] User user)
         {
-            return _accountService.CheckUser(account);
+            return _accountService.CheckUser(user);
         }
 
         [HttpPut]
