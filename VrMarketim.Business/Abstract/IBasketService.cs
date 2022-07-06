@@ -12,5 +12,11 @@ namespace VrMarketim.Business.Abstract
         Basket GetBasket(int accountId);
 
         Basket CreateBasket(Basket basket);
+
+        GeneralProduct GetBasketItem(int accountId, string itemId);
+
+        bool DeleteBasketItem(int accountId, string itemId);
+
+        List<GeneralProduct> GetAllBasket(int accountId);
     }
 }

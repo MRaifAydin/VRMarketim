@@ -30,9 +30,24 @@ namespace VrMarketim.Business.Concrete
             }
         }
 
+        public bool DeleteBasketItem(int accountId, string itemId)
+        {
+            return _basketRepository.DeleteBasketItem(accountId, itemId);
+        }
+
+        public List<GeneralProduct> GetAllBasket(int accountId)
+        {
+            return _basketRepository.GetAllBasket(accountId);
+        }
+
         public Basket GetBasket(int accountId)
         {
             return _basketRepository.GetBasket(accountId);
+        }
+
+        public GeneralProduct GetBasketItem(int accountId, string itemId)
+        {
+            return _basketRepository.GetBasketItem(accountId, itemId);
         }
     }
 }

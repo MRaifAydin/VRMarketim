@@ -11,6 +11,12 @@ namespace VrMarketim.DataAccess.Abstract
     {
         Basket GetBasket(int accountId);
 
+        List<GeneralProduct> GetAllBasket(int accountId);
+
         Basket CreateBasket(Basket basket);
+
+        GeneralProduct GetBasketItem(int accountId, string itemId);
+
+        bool DeleteBasketItem(int accountId, string itemId);
     }
 }
